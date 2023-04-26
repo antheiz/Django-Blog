@@ -1,0 +1,4 @@
+# ignore directory and file
+Env
+__pycache__
+*.sqlite3

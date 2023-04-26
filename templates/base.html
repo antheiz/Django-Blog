@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    {% if title %}
+    <title>Django Blog - {{ title }}</title>
+    {% else %}
+    <title>Django Blog</title>
+    {% endif %}
+  </head>
+  <body>
+    <!-- START NAVBAR -->
+    {% include 'partials/navbar.html' %}
+    <!-- END NAVBAR -->
+
+    <!-- START CONTENT -->
+    {% block content %} {% endblock content %}
+    <!-- END CONTENT -->
+
+    <!-- START FOOTER -->
+    {% include 'partials/footer.html' %}
+    <!-- END FOOTER -->
+  </body>
+
+  <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+</html>
