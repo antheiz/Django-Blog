@@ -1,10 +1,53 @@
 <!-- prettier-ignore -->
 {% extends 'base.html' %} 
 
+{% load tailwind_filters %}
+
 {% block content %}
 <section class="bg-white dark:bg-gray-900">
   <div class="max-w-screen-lg mx-auto p-6">
-    <h1 class="text-2xl">Profile</h1>
+    <form
+      action=""
+      method="post"
+      enctype="multipart/form-data"
+      class="grid grid-cols-2 gap-4"
+    >
+      {% csrf_token %}
+      <div
+        class="p-4 mb-4 bg-white border border-gray-200 rounded-lg shadow-sm 2xl:col-span-2 dark:border-gray-700 sm:p-6 dark:bg-gray-800"
+      >
+        <div class="items-start sm:flex sm:space-x-4">
+          <img
+            class="mb-4 rounded-lg w-28 h-28 sm:mb-0"
+            src="{{ user.profile.profile_img.url }}"
+          />
+          <div class="mx-4">
+            <h3 class="mb-1 text-xl font-bold text-gray-900 dark:text-white">
+              Profile picture
+            </h3>
+            <div class="mb-4 text-sm text-gray-500 dark:text-gray-400">
+              JPG, GIF or PNG. Max size of 800K
+            </div>
+            <div class="flex items-center space-x-4">{{ p_form|crispy }}</div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="p-4 mb-4 bg-white border border-gray-200 rounded-lg shadow-sm 2xl:col-span-2 dark:border-gray-700 sm:p-6 dark:bg-gray-800"
+      >
+        <h3 class="mb-4 text-xl font-semibold dark:text-white">Profile Info</h3>
+        <div class="mb-4">{{ u_form|crispy }}</div>
+        <div>
+          <button
+            type="submit"
+            class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+          >
+            Save all
+          </button>
+        </div>
+      </div>
+    </form>
   </div>
 </section>
+
 {% endblock content %}
