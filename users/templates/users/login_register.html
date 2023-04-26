@@ -63,7 +63,7 @@
             clip-rule="evenodd"
           ></path>
         </svg>
-        <div>{{ message }}</div>
+        <div>{{ message|safe }}</div>
       </div>
       {% endfor %} {% endif %}
       <form class="mt-8 space-y-6" method="post" novalidate>
