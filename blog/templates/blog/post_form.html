@@ -1,0 +1,41 @@
+<!-- prettier-ignore -->
+{% extends 'base.html' %}
+
+{% load tailwind_filters %}
+
+{% block content %}
+<section class="bg-white dark:bg-gray-900">
+  <div class="max-w-screen-lg mx-auto p-6">
+    <a
+      class="inline-block rounded-full border border-gray-400 p-3 mb-4 text-gray-600 bg-transparent hover:bg-gray-100"
+      href="{% url 'blog:index' %}"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke-width="1.5"
+        stroke="currentColor"
+        class="w-5 h-5"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18"
+        />
+      </svg>
+    </a>
+    <form action="" method="post">
+      <!-- prettier-ignore -->
+      {% csrf_token %} 
+      {{form|crispy}}
+      <button
+        type="submit"
+        class="px-6 py-2 font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-blue-600 rounded-lg hover:bg-blue-500 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-80"
+      >
+        Save
+      </button>
+    </form>
+  </div>
+</section>
+{% endblock content %}

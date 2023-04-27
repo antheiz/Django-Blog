@@ -149,5 +149,5 @@ CRISPY_ALLOWED_TEMPLATE_PACKS = "tailwind"
 
 CRISPY_TEMPLATE_PACK = "tailwind"
 
-AUTH_USER_MODEL = "users.CustomUser"
-AUTHENTICATION_BACKENDS = ("users.backends.EmailBackend",)
+# AUTH_USER_MODEL = "users.CustomUser"
+# AUTHENTICATION_BACKENDS = ("users.backends.EmailBackend",)

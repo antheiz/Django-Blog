@@ -1,0 +1,31 @@
+<!-- prettier-ignore -->
+{% extends 'base.html' %}
+
+
+{% block content %}
+<section class="bg-white dark:bg-gray-900">
+  <div class="max-w-screen-lg mx-auto p-6">
+    <h1 class="text-2xl">
+      Are you want to delete Post
+      <span class="font-bold">{{object.title}}</span>
+    </h1>
+    <div class="flex gap-4 my-6">
+      <form method="POST">
+        {% csrf_token %}
+        <button
+          type="submit"
+          class="inline-block rounded-md px-6 py-2 text-white bg-red-500 hover:bg-red-600"
+        >
+          Yes, delete
+        </button>
+        <a
+          class="inline-block rounded-md px-6 py-2 text-white bg-yellow-500 hover:bg-yellow-600"
+          href="{% url 'blog:post-detail' object.id %}"
+        >
+          Cancel
+        </a>
+      </form>
+    </div>
+  </div>
+</section>
+{% endblock content %}
